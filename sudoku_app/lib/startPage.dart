@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'gamePage.dart';
+import 'frontend/gamePage.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -22,25 +21,27 @@ class StartScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const GameScreen()),
+                    MaterialPageRoute(builder: (context) => GameScreen()),
                   );
                 },
               ),
+              const SizedBox(height: 10),
               ElevatedButton(
                 child: const Text('Continue game'),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const GameScreen()),
+                    MaterialPageRoute(builder: (context) => GameScreen()),
                   );
                 },
               ),
+              const SizedBox(height: 10),
               ElevatedButton(
                 child: const Text('Start a new game'),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const GameScreen()),
+                    MaterialPageRoute(builder: (context) => GameScreen()),
                   );
                 },
               ),

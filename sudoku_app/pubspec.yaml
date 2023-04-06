@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get: 4.6.5
+  sudoku_solver_generator: ^2.1.0+1
 
 
   # The following adds the Cupertino Icons font to your application.
