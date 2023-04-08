@@ -5,7 +5,7 @@ import 'package:sudoku_app/startPage.dart';
 void main() {
   runApp(GetMaterialApp(
     title: 'Navigation Basics',
-    home: const StartScreen(),
+    home: StartScreen(),
     theme:
         ThemeData(appBarTheme: const AppBarTheme(backgroundColor: Colors.red)),
   ));

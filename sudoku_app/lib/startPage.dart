@@ -3,7 +3,45 @@ import 'package:flutter/material.dart';
 import 'frontend/gamePage.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  //const StartScreen({super.key});
+  StartScreen({super.key});
+  final TextEditingController _textFieldController = TextEditingController();
+
+  Future _displayDialog(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: const Text("Enter room code below"),
+              content: TextField(
+                controller: _textFieldController,
+                textInputAction: TextInputAction.go,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(hintText: "somecrap@killersudoku"),
+              ),
+              actions: <Widget>[
+                MaterialButton(
+                  color: Colors.red,
+                  textColor: Colors.white,
+                  child: const Text('CANCEL'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                MaterialButton(
+                  color: Colors.green,
+                  textColor: Colors.white,
+                  child: const Text('Submit'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GameScreen()),
+                    );
+                  },
+                )
+              ],
+            ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +56,14 @@ class StartScreen extends StatelessWidget {
             children: <Widget>[
               ElevatedButton(
                 child: const Text('Join a room'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => GameScreen()),
-                  );
+                onPressed: () async {
+                  await _displayDialog(context);
+
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(builder: (context) => GameScreen()),
+                  //     );
+                  //   },
                 },
               ),
               const SizedBox(height: 10),
